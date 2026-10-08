@@ -5,7 +5,7 @@ import { DeletionRequestForm } from "./request-form";
 export const metadata: Metadata = {
   title: "Delete your Habitly account | Lakshya Kumar",
   description: "Request deletion of your Habitly account and associated data.",
-  alternates: { canonical: "https://lakshyakumar.in/habitly/delete-account" },
+  alternates: { canonical: "https://www.lakshyakumar.in/habitly/delete-account" },
 };
 
 export default function DeleteHabitlyAccount() {

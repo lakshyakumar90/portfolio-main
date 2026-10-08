@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Habitly Privacy Policy | Lakshya Kumar",
   description: "How Habitly handles account information, habits, tasks, reminders, and synced data.",
-  alternates: { canonical: "https://lakshyakumar.in/habitly/privacy-policy" },
+  alternates: { canonical: "https://www.lakshyakumar.in/habitly/privacy-policy" },
 };
 
 export default function HabitlyPrivacyPolicy() {
   return (
     <main className="min-h-dvh px-5 py-12 text-neutral-800 dark:text-neutral-200 sm:py-20">
       <article className="mx-auto max-w-3xl rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 sm:p-12">
-        <Link href="/" className="text-sm font-semibold text-neutral-600 underline underline-offset-4 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white">← lakshya.</Link>
+        <Link href="/habitly" className="text-sm font-semibold text-neutral-600 underline underline-offset-4 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-white">← Habitly home</Link>
         <h1 className="mt-8 text-4xl font-semibold tracking-tight text-neutral-950 dark:text-white sm:text-5xl">Habitly Privacy Policy</h1>
         <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">Effective 8 October 2026 · Operated by Lakshya Kumar</p>
         <div className="mt-10 space-y-8 text-base leading-7">
