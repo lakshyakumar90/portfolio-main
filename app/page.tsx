@@ -6,6 +6,7 @@ import { TimeCounter } from "@/components/time-counter";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ProjectListItem } from "@/components/project-list-item";
 import { featuredProjects } from "@/lib/projects";
+import { profileSummary } from "@/lib/profile";
 import { AchievementCard, AchievementItem } from "@/components/achievement-item";
 import { Dock } from "@/components/dock";
 import { SkillsDraggable } from "@/components/skills-draggable";
@@ -216,7 +217,7 @@ export default function Page() {
             <FadeInText delay={0.7}>
               <section className="mt-3 sm:mt-4 mx-1 sm:mx-2 md:m-2 justify-center items-center text-xs sm:text-sm leading-6 text-neutral-600 dark:text-neutral-300">
                 <p>
-                  TL;DR: Full-Stack Developer with hands-on experience building scalable web applications, real-time networking platforms (Socket.IO), and AI-integrated workflows (Gemini SDK). Passionate about clean architecture, latency reduction, and crafting modern, highly responsive UI/UX experiences.
+                  {profileSummary.bio}
                 </p>
               </section>
             </FadeInText>
@@ -417,7 +418,7 @@ export default function Page() {
         </article>
         <div className="mt-6 sm:mt-8 flex justify-center rounded-lg sm:rounded-xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-950 text-xs text-neutral-500 dark:text-neutral-400 p-2 sm:p-2 md:p-3 mx-0">
           <span className="italic text-center leading-5 sm:leading-6">
-            Passionate about scalable architecture, real-time systems, and modern UI/UX design.
+            {profileSummary.focus}
           </span>
         </div>
         <div className="mt-2 sm:mt-3 md:mt-4 flex justify-center text-xs text-neutral-500 dark:text-neutral-400 px-2 pb-6">

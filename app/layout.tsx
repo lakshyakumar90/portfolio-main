@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import StructuredData from "@/components/structured-data";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { LenisSmoothScroll } from "@/components/lenis-smooth-scroll";
+import { profileSummary } from "@/lib/profile";
 
 import { Analytics } from "@vercel/analytics/next";
 
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lakshyakumar.in"),
   title: "Lakshya Kumar - Full Stack Developer | Portfolio",
   description:
-    "Full-Stack Developer with hands-on experience in Full-Stack, real-time systems, and AI-integrated platforms. Passionate about scalable architecture and modern UI/UX design.",
+    profileSummary.description,
   keywords: [
     "Full Stack Developer",
     "React Developer",
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
     siteName: "Lakshya Kumar Portfolio",
     title: "Lakshya Kumar - Full Stack Developer",
     description:
-      "Full-Stack Developer with hands-on experience in Full-Stack, real-time systems, and AI-integrated platforms. Passionate about scalable architecture and modern UI/UX design.",
+      profileSummary.description,
     images: [
       {
         url: "/og.png",
@@ -90,7 +91,7 @@ export const metadata: Metadata = {
     creator: "@lakshyakumar90",
     title: "Lakshya Kumar - Full Stack Developer",
     description:
-      "Full-Stack Developer with hands-on experience in Full-Stack, real-time systems, and AI-integrated platforms. Passionate about scalable architecture and modern UI/UX design.",
+      profileSummary.description,
     images: ["/og.png"],
   },
   icons: {

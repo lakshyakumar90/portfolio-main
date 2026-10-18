@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { profileSummary } from "@/lib/profile";
 
 export default function StructuredData() {
   useEffect(() => {
@@ -10,7 +11,7 @@ export default function StructuredData() {
       name: "Lakshya Kumar",
       jobTitle: "Full Stack Developer",
       description:
-        "Full-Stack Developer with hands-on experience in Full-Stack, real-time systems, and AI-integrated platforms. Passionate about scalable architecture and modern UI/UX design.",
+        profileSummary.description,
       url: "https://lakshyakumar.in",
       image: "https://lakshyakumar.in/lakshya.jpeg",
       email: "lakshyakumar5023@gmail.com",
