@@ -7,7 +7,8 @@
     "test:habitly": "tsx --test tests/habitly-deletion.test.ts",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "test:projects": "tsx --tsconfig tests/tsconfig.json --test tests/projects.test.tsx tests/project-diagrams.test.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

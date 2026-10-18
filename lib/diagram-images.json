@@ -1,0 +1,77 @@
+{
+  "ai-teammates/architecture": {
+    "src": "/diagrams/ai-teammates/architecture.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "ai-teammates/workflow": {
+    "src": "/diagrams/ai-teammates/workflow.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "ai-teammates/group-handoff": {
+    "src": "/diagrams/ai-teammates/group-handoff.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "excalidraw/architecture": {
+    "src": "/diagrams/excalidraw/architecture.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "excalidraw/workflow": {
+    "src": "/diagrams/excalidraw/workflow.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "excalidraw/collaboration": {
+    "src": "/diagrams/excalidraw/collaboration.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "habitly/architecture": {
+    "src": "/diagrams/habitly/architecture.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "habitly/workflow": {
+    "src": "/diagrams/habitly/workflow.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "habitly/offline-sync": {
+    "src": "/diagrams/habitly/offline-sync.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "aurora-ui/architecture": {
+    "src": "/diagrams/aurora-ui/architecture.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "aurora-ui/workflow": {
+    "src": "/diagrams/aurora-ui/workflow.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "aurora-ui/ai-playground": {
+    "src": "/diagrams/aurora-ui/ai-playground.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "devconnect/architecture": {
+    "src": "/diagrams/devconnect/architecture.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "devconnect/workflow": {
+    "src": "/diagrams/devconnect/workflow.png",
+    "width": 1448,
+    "height": 1086
+  },
+  "devconnect/messaging": {
+    "src": "/diagrams/devconnect/messaging.png",
+    "width": 1448,
+    "height": 1086
+  }
+}

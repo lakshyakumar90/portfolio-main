@@ -5,11 +5,11 @@ import { Typewriter } from "@/components/ui/typewriter";
 import { TimeCounter } from "@/components/time-counter";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ProjectListItem } from "@/components/project-list-item";
+import { featuredProjects } from "@/lib/projects";
 import { AchievementCard, AchievementItem } from "@/components/achievement-item";
 import { Dock } from "@/components/dock";
 import { SkillsDraggable } from "@/components/skills-draggable";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { ContactForm } from "@/components/contact-form";
 import {
   FadeInText,
   SlideUp,
@@ -69,7 +69,7 @@ export default function Page() {
               experience
             </a>
             <a
-              href="#projects"
+              href="/projects"
               className="hover:text-neutral-900 dark:hover:text-neutral-50 text-xs sm:text-xs transition-colors"
             >
               projects
@@ -289,76 +289,16 @@ export default function Page() {
                     Proof of Work
                   </h3>
                 </FadeInText>
-                <div className="space-y-2 sm:space-y-3 md:space-y-3">
-                  <SlideInLeft delay={0.1}>
-                    <ProjectListItem
-                      title="DevConnect — Developer Social Network"
-                      slug="devconnect"
-                      video="/project-videos/DevConnect _ Developer Social Network - Brave 2026-07-19 11-50-35.mp4"
-                      links={[
-                        {
-                          label: "github ↗",
-                          href: "https://lnkd.in/gEEURF8v",
-                        },
-                      ]}
-                      bullets={[
-                        "Architected a full-stack developer networking platform featuring secure JWT authentication, real-time messaging, and responsive UI, seamlessly handling 50+ concurrent socket connections.",
-                        "Reduced authentication latency significantly by implementing stateless JWT tokens, enabling ultra-fast real-time chat via Socket.IO.",
-                      ]}
-                      tags={["React.js", "Node.js", "Express.js", "MongoDB", "Socket.IO", "Tailwind CSS", "JWT"]}
-                    />
-                  </SlideInLeft>
-
-                  <SlideInLeft delay={0.15}>
-                    <ProjectListItem
-                      title="Stream — AI Content Studio"
-                      slug="stream-ai-content-studio"
-                      video="/project-videos/Stream — AI Content Studio - Brave 2026-07-20 14-47-43 - Trim.mp4"
-                      links={[
-                        {
-                          label: "github ↗",
-                          href: "https://github.com/lakshyakumar90",
-                        },
-                      ]}
-                      bullets={[
-                        "Designed an AI-powered content platform integrating the Gemini SDK and Tavily API, supporting 5+ intelligent content generation workflows including deep resume analysis.",
-                        "Improved content retrieval accuracy and contextual relevance by combining LLM generation with real-time web search via Tavily API.",
-                      ]}
-                      tags={["React", "Node.js", "Express", "Gemini SDK", "Tavily API", "GetStream.io"]}
-                    />
-                  </SlideInLeft>
-
-                  <SlideInLeft delay={0.2}>
-                    <ProjectListItem
-                      title="Aurora UI — Animated Component Library"
-                      slug="aurora-ui"
-                      video="/project-videos/aurora-ui.mp4"
-                      links={[
-                        {
-                          label: "github ↗",
-                          href: "https://github.com/lakshyakumar90",
-                        },
-                      ]}
-                      bullets={[
-                        "Engineered a modular animated UI library with 20+ reusable components built on Next.js and Framer Motion with interactive playground support.",
-                        "Optimized all components for responsiveness and rendering efficiency, achieving smooth 60fps animations across desktops and mobile devices.",
-                      ]}
-                      tags={["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion", "GSAP"]}
-                    />
-                  </SlideInLeft>
+                <div className="space-y-3 sm:space-y-4">
+                  {featuredProjects.map((project) => (
+                    <ProjectListItem key={project.slug} project={project} headingLevel={4} showPortraitThumbnails />
+                  ))}
                 </div>
-                <FadeInText delay={0.2}>
-                  <div className="mt-3 sm:mt-4 flex justify-center">
-                    <a
-                      href="https://github.com/lakshyakumar90?tab=repositories"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 rounded-sm border border-neutral-200 px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm text-neutral-700 hover:bg-neutral-50 dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900 transition-colors"
-                    >
-                      View all projects →
-                    </a>
-                  </div>
-                </FadeInText>
+                <div className="mt-4 flex justify-center">
+                  <Link href="/projects" className="inline-flex min-h-10 items-center gap-1 rounded-md border border-neutral-200 px-3 py-2 text-xs text-neutral-700 transition-colors hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-900">
+                    View all projects →
+                  </Link>
+                </div>
               </section>
             </SlideUp>
 
@@ -471,16 +411,6 @@ export default function Page() {
                   </a>
                 </div>
 
-                <div className="mt-6">
-                  <p className="text-sm font-medium text-neutral-900 dark:text-neutral-50">
-                    or send a message right here
-                  </p>
-                  <ContactForm />
-                  <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
-                    Messages are directed to{" "}
-                    <span className="font-medium">lakshyakumar5023@gmail.com</span>.
-                  </p>
-                </div>
               </section>
             </SlideUp>
           </div>

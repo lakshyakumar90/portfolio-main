@@ -1,0 +1,261 @@
+{
+  "ai-teammates": {
+    "images": [
+      {
+        "id": "screen-1",
+        "type": "image",
+        "src": "/project-images/ai-teammates/1.png",
+        "alt": "AI Teammates — screenshot 1",
+        "caption": "AI Teammates — screenshot 1",
+        "width": 1351,
+        "height": 621
+      },
+      {
+        "id": "screen-2",
+        "type": "image",
+        "src": "/project-images/ai-teammates/2.png",
+        "alt": "AI Teammates — screenshot 2",
+        "caption": "AI Teammates — screenshot 2",
+        "width": 1356,
+        "height": 617
+      },
+      {
+        "id": "screen-3",
+        "type": "image",
+        "src": "/project-images/ai-teammates/3.png",
+        "alt": "AI Teammates — screenshot 3",
+        "caption": "AI Teammates — screenshot 3",
+        "width": 1366,
+        "height": 624
+      },
+      {
+        "id": "screen-4",
+        "type": "image",
+        "src": "/project-images/ai-teammates/4.png",
+        "alt": "AI Teammates — screenshot 4",
+        "caption": "AI Teammates — screenshot 4",
+        "width": 1350,
+        "height": 621
+      }
+    ],
+    "video": {
+      "id": "demo",
+      "type": "video",
+      "src": "/project-videos/ai-teammates.mp4",
+      "heading": "Product walkthrough",
+      "caption": "AI Teammates — product walkthrough",
+      "width": 1364,
+      "height": 768
+    }
+  },
+  "excalidraw": {
+    "images": [
+      {
+        "id": "screen-1",
+        "type": "image",
+        "src": "/project-images/excalidraw/1.png",
+        "alt": "Excalidraw — screenshot 1",
+        "caption": "Excalidraw — screenshot 1",
+        "width": 1366,
+        "height": 624
+      },
+      {
+        "id": "screen-2",
+        "type": "image",
+        "src": "/project-images/excalidraw/2.png",
+        "alt": "Excalidraw — screenshot 2",
+        "caption": "Excalidraw — screenshot 2",
+        "width": 1348,
+        "height": 620
+      },
+      {
+        "id": "screen-3",
+        "type": "image",
+        "src": "/project-images/excalidraw/3.png",
+        "alt": "Excalidraw — screenshot 3",
+        "caption": "Excalidraw — screenshot 3",
+        "width": 1351,
+        "height": 615
+      },
+      {
+        "id": "screen-4",
+        "type": "image",
+        "src": "/project-images/excalidraw/4.png",
+        "alt": "Excalidraw — screenshot 4",
+        "caption": "Excalidraw — screenshot 4",
+        "width": 1366,
+        "height": 660
+      }
+    ],
+    "video": {
+      "id": "demo",
+      "type": "video",
+      "src": "/project-videos/excalidraw.mp4",
+      "heading": "Product walkthrough",
+      "caption": "Excalidraw — product walkthrough",
+      "width": 1364,
+      "height": 768
+    }
+  },
+  "habitly": {
+    "images": [
+      {
+        "id": "screen-1",
+        "type": "image",
+        "src": "/project-images/habitly/01-today.png",
+        "alt": "Habitly — today",
+        "heading": "Today",
+        "caption": "Habitly — today",
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "screen-2",
+        "type": "image",
+        "src": "/project-images/habitly/02-habits.png",
+        "alt": "Habitly — habits",
+        "heading": "Habits",
+        "caption": "Habitly — habits",
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "screen-3",
+        "type": "image",
+        "src": "/project-images/habitly/03-profile.png",
+        "alt": "Habitly — profile",
+        "heading": "Profile",
+        "caption": "Habitly — profile",
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "screen-4",
+        "type": "image",
+        "src": "/project-images/habitly/04-tasks.png",
+        "alt": "Habitly — tasks",
+        "heading": "Tasks",
+        "caption": "Habitly — tasks",
+        "width": 1080,
+        "height": 1920
+      },
+      {
+        "id": "screen-5",
+        "type": "image",
+        "src": "/project-images/habitly/05-stats.png",
+        "alt": "Habitly — stats",
+        "heading": "Stats",
+        "caption": "Habitly — stats",
+        "width": 1080,
+        "height": 1920
+      }
+    ],
+    "video": {
+      "id": "demo",
+      "type": "video",
+      "src": "/project-videos/habitly.mp4",
+      "heading": "Product walkthrough",
+      "caption": "Habitly — product walkthrough",
+      "width": 576,
+      "height": 1280
+    }
+  },
+  "aurora-ui": {
+    "images": [
+      {
+        "id": "screen-1",
+        "type": "image",
+        "src": "/project-images/aurora-ui/aurora-1.png",
+        "alt": "Aurora UI — screenshot 1",
+        "caption": "Aurora UI — screenshot 1",
+        "width": 1352,
+        "height": 617
+      },
+      {
+        "id": "screen-2",
+        "type": "image",
+        "src": "/project-images/aurora-ui/aurora-2.png",
+        "alt": "Aurora UI — screenshot 2",
+        "caption": "Aurora UI — screenshot 2",
+        "width": 1359,
+        "height": 616
+      },
+      {
+        "id": "screen-3",
+        "type": "image",
+        "src": "/project-images/aurora-ui/aurora-3.png",
+        "alt": "Aurora UI — screenshot 3",
+        "caption": "Aurora UI — screenshot 3",
+        "width": 1357,
+        "height": 623
+      },
+      {
+        "id": "screen-4",
+        "type": "image",
+        "src": "/project-images/aurora-ui/aurora-4.png",
+        "alt": "Aurora UI — screenshot 4",
+        "caption": "Aurora UI — screenshot 4",
+        "width": 1360,
+        "height": 621
+      }
+    ],
+    "video": {
+      "id": "demo",
+      "type": "video",
+      "src": "/project-videos/aurora-ui.mp4",
+      "heading": "Product walkthrough",
+      "caption": "Aurora UI — product walkthrough",
+      "width": 1332,
+      "height": 720
+    }
+  },
+  "devconnect": {
+    "images": [
+      {
+        "id": "screen-1",
+        "type": "image",
+        "src": "/project-images/devconnect/devconnect-1.png",
+        "alt": "DevConnect — screenshot 1",
+        "caption": "DevConnect — screenshot 1",
+        "width": 1358,
+        "height": 616
+      },
+      {
+        "id": "screen-2",
+        "type": "image",
+        "src": "/project-images/devconnect/devconnect-2.png",
+        "alt": "DevConnect — screenshot 2",
+        "caption": "DevConnect — screenshot 2",
+        "width": 1359,
+        "height": 611
+      },
+      {
+        "id": "screen-3",
+        "type": "image",
+        "src": "/project-images/devconnect/devconnect-3.png",
+        "alt": "DevConnect — screenshot 3",
+        "caption": "DevConnect — screenshot 3",
+        "width": 1358,
+        "height": 614
+      },
+      {
+        "id": "screen-4",
+        "type": "image",
+        "src": "/project-images/devconnect/devconnect-4.png",
+        "alt": "DevConnect — screenshot 4",
+        "caption": "DevConnect — screenshot 4",
+        "width": 1358,
+        "height": 617
+      }
+    ],
+    "video": {
+      "id": "demo",
+      "type": "video",
+      "src": "/project-videos/DevConnect _ Developer Social Network - Brave 2026-07-19 11-50-35.mp4",
+      "heading": "Product walkthrough",
+      "caption": "DevConnect — product walkthrough",
+      "width": 1376,
+      "height": 744
+    }
+  }
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "ai-teammates",
+    "id": "architecture",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-4da0b5a3-5828-4158-8b38-83ec71c79507.png"
+  },
+  {
+    "slug": "ai-teammates",
+    "id": "workflow",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-c9e18716-e1a0-4034-9836-68d704ef3117.png"
+  },
+  {
+    "slug": "ai-teammates",
+    "id": "group-handoff",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-14d069b8-a74c-49b3-bf28-b540a09eae94.png"
+  },
+  {
+    "slug": "excalidraw",
+    "id": "architecture",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-4cb7c73d-71e1-42b2-939c-475d3bb4db08.png"
+  },
+  {
+    "slug": "excalidraw",
+    "id": "workflow",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-7ac473ee-1ad1-4cdf-8556-c8124a03f863.png",
+    "correction": "Remove ONLY the diagonal arrow connecting 'Keep the drawing locally' to 'Reconcile & broadcast'. The guest IndexedDB branch must END at 'Keep the drawing locally'. Preserve every other arrow, label, box, position, dark charcoal background and white handwriting exactly."
+  },
+  {
+    "slug": "excalidraw",
+    "id": "collaboration",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-fa843f73-8d22-444b-9495-86cce0a8bc44.png"
+  },
+  {
+    "slug": "habitly",
+    "id": "architecture",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-e39c3fb4-d454-4d4b-b707-ac2842a2aeb9.png"
+  },
+  {
+    "slug": "habitly",
+    "id": "workflow",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-fc39728b-565b-4df4-a351-16021c3190d1.png"
+  },
+  {
+    "slug": "habitly",
+    "id": "offline-sync",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-9ede61c3-262b-47b5-96b3-adfa6995732b.png"
+  },
+  {
+    "slug": "aurora-ui",
+    "id": "architecture",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-d1026302-55c8-459e-8689-3bcbbbb7c6d7.png"
+  },
+  {
+    "slug": "aurora-ui",
+    "id": "workflow",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-3db173a6-7af6-4aff-8d41-de950be4b42e.png"
+  },
+  {
+    "slug": "aurora-ui",
+    "id": "ai-playground",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-a48f9c21-310a-4e68-992e-dab4ee5d2ad0.png"
+  },
+  {
+    "slug": "devconnect",
+    "id": "architecture",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-7396f7f4-b411-433f-b862-35a912e2358b.png",
+    "correction": "Correct ONLY two edge labels: the diagonal arrow from REST API to GitHub integration must say 'OAuth + API' instead of 'chat writes'. The diagonal arrow from Real-time transport to Product records must say 'chat writes'. Keep all other labels, boxes, arrows, dark charcoal background and white handwriting exactly unchanged."
+  },
+  {
+    "slug": "devconnect",
+    "id": "workflow",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-68b79734-8230-4621-872b-fe76b27ed786.png"
+  },
+  {
+    "slug": "devconnect",
+    "id": "messaging",
+    "source": "C:\\Users\\laksh\\.codex\\generated_images\\01a14d9e-e3f0-73f1-89ca-832ada107420\\exec-e0c4429c-7f31-433d-a860-743e6dff8f45.png"
+  }
+]

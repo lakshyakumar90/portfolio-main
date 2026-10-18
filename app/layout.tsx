@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import StructuredData from "@/components/structured-data";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { LenisSmoothScroll } from "@/components/lenis-smooth-scroll";
-import { NekoCat } from "@/components/neko-cat";
+
 import { Analytics } from "@vercel/analytics/next";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -16,6 +16,7 @@ const bricolageGrotesque = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lakshyakumar.in"),
   title: "Lakshya Kumar - Full Stack Developer | Portfolio",
   description:
     "Full-Stack Developer with hands-on experience in Full-Stack, real-time systems, and AI-integrated platforms. Passionate about scalable architecture and modern UI/UX design.",
@@ -37,8 +38,10 @@ export const metadata: Metadata = {
     "Lakshya Kumar",
     "Ophanim Technologies",
     "Graphic Era Hill University",
-    "DevTinder",
-    "AI Content Writer",
+    "AI Teammates",
+    "Excalidraw",
+    "Habitly",
+    "DevConnect",
     "Aurora-UI",
     "Modern Portfolio",
     "Clean Portfolio",
@@ -108,25 +111,7 @@ export const metadata: Metadata = {
     "contact:country_name": "India",
     "contact:region": "Uttarakhand",
     "contact:locality": "Dehradun",
-    "og:image:width": "1200",
-    "og:image:height": "630",
-    "og:image:type": "image/png",
-    "og:image:alt": "Lakshya Kumar - Full Stack Developer Portfolio",
-    "og:site_name": "Lakshya Kumar Portfolio",
-    "og:locale": "en_US",
-    "og:type": "website",
-    "og:url": "https://lakshyakumar.in",
-    "og:title": "Lakshya Kumar - Full Stack Developer",
-    "og:description":
-      "Full-Stack Developer with hands-on experience in Full-Stack, real-time systems, and AI-integrated platforms. Passionate about scalable architecture and modern UI/UX design.",
-    "og:image": "/og.png",
-    "twitter:image:alt": "Lakshya Kumar - Full Stack Developer Portfolio",
-    "twitter:domain": "lakshyakumar.in",
-    "twitter:url": "https://lakshyakumar.in",
-    "whatsapp:image": "/og.png",
-    "whatsapp:title": "Lakshya Kumar - Full Stack Developer",
-    "whatsapp:description":
-      "Full-Stack Developer with hands-on experience in Full-Stack, real-time systems, and AI-integrated platforms. Passionate about scalable architecture and modern UI/UX design.",
+
   },
 };
 
@@ -144,7 +129,9 @@ export default function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body className="font-sans min-h-dvh bg-grid text-foreground">
+      {/* Extensions can add body attributes before hydration (for example cz-shortcut-listen).
+          This applies only to this element; child hydration mismatches remain visible. */}
+      <body className="font-sans min-h-dvh bg-grid text-foreground" suppressHydrationWarning>
         <ErrorBoundary>
           <ThemeProvider
             attribute="class"
@@ -153,7 +140,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <LenisSmoothScroll />
-            <NekoCat />
+
             <div className="min-h-dvh">
               {children}
             </div>

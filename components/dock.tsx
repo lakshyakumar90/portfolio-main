@@ -19,8 +19,8 @@ export function Dock() {
   }, []);
 
   const items = [
-    { type: "image", label: "Home", href: "#" },
-    { icon: Code2, label: "Projects", href: "#projects" },
+    { type: "image", label: "Home", href: "/" },
+    { icon: Code2, label: "Projects", href: "/projects" },
     { icon: Github, label: "GitHub", href: "https://github.com/lakshyakumar90" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/kumar-lakshya" },
     { icon: Globe, label: "Website", href: "https://lakshyakumar.in" },

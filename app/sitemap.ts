@@ -1,7 +1,14 @@
 import { MetadataRoute } from "next";
+import { projects } from "@/lib/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
+    { url: "https://lakshyakumar.in/projects", changeFrequency: "monthly", priority: 0.9 },
+    ...projects.map((project) => ({
+      url: `https://lakshyakumar.in/projects/${project.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     {
       url: "https://www.lakshyakumar.in/habitly",
       lastModified: new Date(),

@@ -473,3 +473,42 @@
   }
 }
 
+
+/* Preserve the entire cover and its source proportions, including phone screens. */
+.project-cover img,
+.project-cover video {
+  max-height: none;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+/* Phone covers stay compact without cropping their content or affecting galleries. */
+.project-cover-portrait {
+  display: flex;
+  justify-content: center;
+  height: clamp(12rem, 40vw, 18rem);
+}
+.project-cover-portrait img,
+.project-cover-portrait video {
+  width: auto;
+  height: 100%;
+  max-height: 100%;
+}
+
+/* Diagrams stay inside the page column; narrow screens use a vertical graph. */
+.diagram-canvas svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.diagram-wide { display: block; }
+.diagram-compact { display: none; }
+@media (max-width: 639px) {
+  .diagram-wide { display: none; }
+  .diagram-compact { display: block; }
+}

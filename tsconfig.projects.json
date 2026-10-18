@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "incremental": false },
+  "include": [
+    "next-env.d.ts",
+    "app/page.tsx",
+    "app/layout.tsx",
+    "app/projects/**/*.tsx",
+    "app/sitemap.ts",
+    "components/project-*.tsx",
+    "components/dock.tsx",
+    "components/lenis-smooth-scroll.tsx",
+    "lib/projects.ts",
+    "tests/projects.test.tsx",
+    "tests/project-diagrams.test.ts",
+    "app/projects/**/*.ts"
+  ]
+}

@@ -7,9 +7,10 @@ interface TimeCounterProps {
 }
 
 export function TimeCounter({ className }: TimeCounterProps) {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState<Date | null>(null);
 
   useEffect(() => {
+    setTime(new Date());
     const timer = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -26,5 +27,5 @@ export function TimeCounter({ className }: TimeCounterProps) {
     });
   };
 
-  return <span className={className} suppressHydrationWarning>{formatTime(time)}</span>;
+  return <span className={className}>{time ? formatTime(time) : "--:--:--"}</span>;
 }

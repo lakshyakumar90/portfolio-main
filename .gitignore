@@ -6,6 +6,9 @@
 
 # next.js
 /.next/
+/.next-showcase/
+/.next-diagrams/
+/.next-diagrams-fit/
 /out/
 
 
@@ -35,3 +38,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.next-diagram-images/
+.next-project-media/
