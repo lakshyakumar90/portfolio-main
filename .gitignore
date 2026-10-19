@@ -40,3 +40,5 @@ yarn-error.log*
 next-env.d.ts
 .next-diagram-images/
 .next-project-media/
+.firecrawl/
+.next-portfolio-refresh/

@@ -1,90 +1,30 @@
-import { NextResponse } from "next/server"
-
-const GITHUB_API = "https://api.github.com/graphql"
-const DEFAULT_USER = "lakshyakumar90"
+import { NextResponse } from "next/server";
+import { parsePublicCalendar } from "@/lib/github-calendar";
 
 export async function GET() {
-  const token =
-    process.env.GITHUB_TOKEN || process.env.NEXT_PUBLIC_GITHUB_TOKEN
-  const login = process.env.GITHUB_USERNAME || DEFAULT_USER
-
-  if (!token) {
-    return NextResponse.json(
-      { error: "GitHub token not configured." },
-      { status: 500 }
-    )
-  }
-
-  const to = new Date()
-  const from = new Date()
-  from.setFullYear(to.getFullYear() - 1)
-
-  const query = `
-    query($login: String!, $from: DateTime!, $to: DateTime!) {
-      user(login: $login) {
-        contributionsCollection(from: $from, to: $to) {
-          contributionCalendar {
-            totalContributions
-            weeks {
-              contributionDays {
-                date
-                contributionCount
-                contributionLevel
-              }
-            }
-          }
-        }
+  const login = process.env.GITHUB_USERNAME || "lakshyakumar90";
+  if (!/^[a-z\d](?:[a-z\d-]{0,38})$/i.test(login)) return NextResponse.json({ error: "Invalid GitHub username" }, { status: 400 });
+  try {
+    const token = process.env.GITHUB_TOKEN;
+    if (token) {
+      const to = new Date();
+      const from = new Date(to);
+      from.setUTCFullYear(to.getUTCFullYear() - 1);
+      const response = await fetch("https://api.github.com/graphql", {
+        method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ query: "query($login:String!,$from:DateTime!,$to:DateTime!){user(login:$login){contributionsCollection(from:$from,to:$to){contributionCalendar{totalContributions weeks{contributionDays{date contributionCount contributionLevel}}}}}}", variables: { login, from: from.toISOString(), to: to.toISOString() } }),
+        signal: AbortSignal.timeout(10000), next: { revalidate: 3600 },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        const calendar = data.data?.user?.contributionsCollection?.contributionCalendar;
+        if (calendar) return NextResponse.json({ ...calendar, source: "api" }, { headers: { "Cache-Control": "s-maxage=3600, stale-while-revalidate=86400" } });
       }
     }
-  `
-
-  const res = await fetch(GITHUB_API, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      query,
-      variables: { login, from: from.toISOString(), to: to.toISOString() },
-    }),
-  })
-
-  if (!res.ok) {
-    const text = await res.text()
-    return NextResponse.json(
-      { error: "GitHub request failed.", detail: text },
-      { status: 502 }
-    )
+    const response = await fetch(`https://github.com/users/${login}/contributions`, { headers: { Accept: "text/html" }, signal: AbortSignal.timeout(10000), next: { revalidate: 3600 } });
+    if (!response.ok) throw new Error("GitHub unavailable");
+    return NextResponse.json(parsePublicCalendar(await response.text()), { headers: { "Cache-Control": "s-maxage=3600, stale-while-revalidate=86400" } });
+  } catch {
+    return NextResponse.json({ error: "GitHub activity is temporarily unavailable." }, { status: 503 });
   }
-
-  const json = await res.json()
-  if (json.errors) {
-    return NextResponse.json(
-      { error: "GitHub query error.", detail: json.errors },
-      { status: 502 }
-    )
-  }
-
-  const calendar =
-    json?.data?.user?.contributionsCollection?.contributionCalendar
-
-  if (!calendar) {
-    return NextResponse.json(
-      { error: "No GitHub contribution data found." },
-      { status: 404 }
-    )
-  }
-
-  return NextResponse.json(
-    {
-      totalContributions: calendar.totalContributions,
-      weeks: calendar.weeks,
-    },
-    {
-      headers: {
-        "Cache-Control": "s-maxage=3600, stale-while-revalidate=86400",
-      },
-    }
-  )
 }

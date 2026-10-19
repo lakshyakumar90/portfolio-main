@@ -6,9 +6,10 @@ import { getProjectBySlug, projects } from "@/lib/projects";
 import { Chip } from "@/components/chip";
 import { ProjectGallery } from "@/components/project-gallery";
 import { ProjectLinks } from "@/components/project-links";
-import { ThemeToggle } from "@/components/theme-toggle";
+
 
 type PageProps = { params: Promise<{ slug: string }> };
+export const dynamicParams = false;
 export function generateStaticParams() {
   return projects.map(({ slug }) => ({ slug }));
 }
@@ -29,7 +30,7 @@ export default async function ProjectPage({ params }: PageProps) {
     <div className="mx-auto max-w-3xl">
       <nav aria-label="Project navigation" className="mb-10 flex items-center justify-between gap-4">
         <Link href="/projects" className="inline-flex min-h-10 items-center gap-2 rounded-sm text-sm text-neutral-600 hover:text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-4 dark:text-neutral-300 dark:hover:text-white"><ArrowLeft className="h-4 w-4" aria-hidden="true" />All projects</Link>
-        <div className="flex items-center gap-4"><Link href="/" className="text-xs text-neutral-600 underline-offset-4 hover:underline dark:text-neutral-300">Home</Link><ThemeToggle /></div>
+        <div className="flex items-center gap-4"><Link href="/" className="text-xs text-neutral-600 underline-offset-4 hover:underline dark:text-neutral-300">Home</Link></div>
       </nav>
       <article className="space-y-10">
         <header className="space-y-5">

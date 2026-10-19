@@ -59,3 +59,11 @@ Existing Habitly support pages and account-deletion APIs are separate from the p
 Nodes have unique IDs, a column (0–2), a non-negative row, title, detail, and optional kind (`interface`, `process`, `storage`, `external`, `decision`). Edges reference node IDs and carry a connection label; `dashed: true` marks a conditional/supporting path. Keep one node per grid cell. The renderer validates references, placement, and text length instead of silently clipping labels.
 
 SVG exports are available at `/projects/{slug}/diagrams/{id}.svg`. Text is escaped, the response uses an SVG content type and restrictive content security policy, and unknown project/diagram IDs return 404. The downloadable SVG follows system color preference; inline diagrams follow the portfolio theme.
+
+## Shared layout and home design
+
+The home page uses an 880px outer column, Inter body text, Instrument Serif headings, static categorized tech pills, keyboard-accessible experience details, featured projects, real GitHub activity, social links, and direct contact options. `DESIGN.md` records the visual decisions.
+
+`components/site-navigation.tsx` and `components/dock.tsx` render once from the root layout on every page. Header/dock space and safe-area offsets are handled in `app/globals.css`; project listing and detail content keep their existing widths. `app/loading.tsx` supplies an actual route-loading skeleton without an artificial delay.
+
+GitHub activity loads through `/api/github`. Optional server-only `GITHUB_TOKEN` enables GraphQL; without it the route parses GitHub's public contribution calendar. Set `GITHUB_USERNAME` only to override the default account. No public token or fabricated data is used. Upstream failures retain a direct profile link.

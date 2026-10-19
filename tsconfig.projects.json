@@ -13,6 +13,9 @@
     "lib/projects.ts",
     "tests/projects.test.tsx",
     "tests/project-diagrams.test.ts",
-    "app/projects/**/*.ts"
+    "app/projects/**/*.ts",
+    "app/api/github/**/*.ts",
+    "app/loading.tsx",
+    "tests/github-calendar.test.ts"
   ]
 }

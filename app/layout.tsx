@@ -1,12 +1,14 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Bricolage_Grotesque } from "next/font/google";
+import { Bricolage_Grotesque, Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import StructuredData from "@/components/structured-data";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { LenisSmoothScroll } from "@/components/lenis-smooth-scroll";
 import { profileSummary } from "@/lib/profile";
+import { SiteNavigation } from "@/components/site-navigation";
+import { Dock } from "@/components/dock";
 
 import { Analytics } from "@vercel/analytics/next";
 
@@ -15,6 +17,8 @@ const bricolageGrotesque = Bricolage_Grotesque({
   display: "swap",
   variable: "--font-bricolage-grotesque",
 });
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", display: "swap", variable: "--font-instrument-serif" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lakshyakumar.in"),
@@ -124,7 +128,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolageGrotesque.variable} antialiased`}
+      className={`${bricolageGrotesque.variable} ${inter.variable} ${instrumentSerif.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>
@@ -132,7 +136,7 @@ export default function RootLayout({
       </head>
       {/* Extensions can add body attributes before hydration (for example cz-shortcut-listen).
           This applies only to this element; child hydration mismatches remain visible. */}
-      <body className="font-sans min-h-dvh bg-grid text-foreground" suppressHydrationWarning>
+      <body className="portfolio-site font-sans min-h-dvh text-foreground" suppressHydrationWarning>
         <ErrorBoundary>
           <ThemeProvider
             attribute="class"
@@ -141,10 +145,11 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <LenisSmoothScroll />
-
-            <div className="min-h-dvh">
+            <SiteNavigation />
+            <div id="main-content" tabIndex={-1} className="site-content min-h-dvh">
               {children}
             </div>
+            <Dock />
           </ThemeProvider>
         </ErrorBoundary>
         <Analytics />

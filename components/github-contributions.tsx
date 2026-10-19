@@ -1,115 +1,33 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import type { ContributionWeek } from "@/lib/github-calendar";
 
-type ContributionDay = {
-  date: string
-  contributionCount: number
-  contributionLevel: string
-}
-
-type Week = {
-  contributionDays: ContributionDay[]
-}
+const levels = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"];
+type Calendar = { weeks: ContributionWeek[]; totalContributions: number; source?: string };
 
 export function GitHubContributions() {
-  const [weeks, setWeeks] = useState<Week[]>([])
-  const [total, setTotal] = useState(0)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
+  const [calendar, setCalendar] = useState<Calendar | null>(null);
+  const [failed, setFailed] = useState(false);
   useEffect(() => {
-    const load = async () => {
-      try {
-        const res = await fetch("/api/github")
-        if (!res.ok) throw new Error("Failed")
+    const controller = new AbortController();
+    fetch("/api/github", { signal: controller.signal }).then(async response => {
+      if (!response.ok) throw new Error("Unavailable");
+      const data = await response.json();
+      if (!Array.isArray(data.weeks) || !data.weeks.length || typeof data.totalContributions !== "number") throw new Error("Invalid calendar");
+      setCalendar(data);
+    }).catch(error => { if (error.name !== "AbortError") setFailed(true); });
+    return () => controller.abort();
+  }, []);
 
-        const data = await res.json()
-        setWeeks(data.weeks)
-        setTotal(data.totalContributions)
-      } catch {
-        setError("Unable to load GitHub contributions")
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    load()
-  }, [])
-
-  const color = (level: string) => {
-    switch (level) {
-      case "NONE":
-        return "bg-neutral-800"
-      case "FIRST_QUARTILE":
-        return "bg-purple-900"
-      case "SECOND_QUARTILE":
-        return "bg-purple-700"
-      case "THIRD_QUARTILE":
-        return "bg-purple-500"
-      case "FOURTH_QUARTILE":
-        return "bg-purple-300"
-      default:
-        return "bg-neutral-800"
-    }
-  }
-
-  if (loading) {
-    return (
-      <div className="h-40 flex items-center justify-center text-xs text-neutral-500">
-        Loading GitHub activity…
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="rounded-lg border border-red-500/20 bg-red-500/10 p-4 text-xs text-red-400">
-        {error}
-      </div>
-    )
-  }
-
-  return (
-    <section className="space-y-4">
-      <div>
-        <h3 className="text-sm font-semibold text-neutral-100">
-          GitHub Contributions
-        </h3>
-        <p className="text-xs text-neutral-400">
-          {total} contributions in the last year
-        </p>
-      </div>
-
-      <div className="overflow-x-auto">
-        <div className="inline-flex gap-1">
-          {weeks.map((week, w) => (
-            <div key={w} className="flex flex-col gap-1">
-              {week.contributionDays.map((day, d) => (
-                <div
-                  key={d}
-                  title={`${day.date} — ${day.contributionCount}`}
-                  className={`h-3 w-3 rounded-sm transition-transform duration-200 hover:scale-125 ${color(
-                    day.contributionLevel
-                  )}`}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex items-center justify-end gap-2 text-[10px] text-neutral-500">
-        <span>Less</span>
-        <div className="flex gap-1">
-          <div className="h-3 w-3 rounded-sm bg-neutral-800" />
-          <div className="h-3 w-3 rounded-sm bg-purple-900" />
-          <div className="h-3 w-3 rounded-sm bg-purple-700" />
-          <div className="h-3 w-3 rounded-sm bg-purple-500" />
-          <div className="h-3 w-3 rounded-sm bg-purple-300" />
-        </div>
-        <span>More</span>
-      </div>
-    </section>
-  )
+  if (failed) return <div className="github-fallback"><p>Activity is temporarily unavailable.</p><a href="https://github.com/lakshyakumar90" target="_blank" rel="noopener noreferrer">View activity on GitHub ↗</a></div>;
+  if (!calendar) return <div className="github-loading" role="status">Loading GitHub activity…</div>;
+  const days = calendar.weeks.flatMap(week => week.contributionDays);
+  return <div className="github-activity">
+    <div className="contribution-grid" role="img" aria-label={`${calendar.totalContributions} contributions over the last year. A calendar of daily GitHub activity.`} style={{ gridTemplateColumns: `repeat(${calendar.weeks.length}, minmax(0, 1fr))` }}>
+      {calendar.weeks.map((week, index) => <div className="contribution-week" key={index}>{week.contributionDays.map(day => <span key={day.date} className={`contribution-cell contribution-level-${Math.max(0, levels.indexOf(day.contributionLevel))}`} style={{ gridRow: new Date(`${day.date}T00:00:00Z`).getUTCDay() + 1 }} title={`${day.date}: ${day.contributionCount} contributions`} />)}</div>)}
+    </div>
+    <div className="contribution-meta"><p><strong>{calendar.totalContributions.toLocaleString("en-US")}</strong> contributions in the last year</p><div className="contribution-legend" aria-label="Activity intensity from less to more"><span>Less</span>{levels.map((level, index) => <i key={level} className={`contribution-cell contribution-level-${index}`} />)}<span>More</span></div></div>
+    <p className="contribution-source">{calendar.source === "public" ? "Public GitHub contribution data" : "GitHub contribution data"} · {days[0]?.date} — {days.at(-1)?.date}</p>
+  </div>;
 }

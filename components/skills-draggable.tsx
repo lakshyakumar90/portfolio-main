@@ -1,96 +1,15 @@
-"use client";
+import { Code2, Database, Layers3 } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-
-type Skill = {
-  label: string;
-};
-
-function SkillPill({ label }: Skill) {
-  return (
-    <motion.div
-      className={cn(
-        "relative select-none",
-       "inline-flex items-center rounded-md border px-2.5 py-1 text-xs font-medium",
-        "bg-white text-neutral-700 border-neutral-300",
-        "dark:bg-neutral-950 dark:text-neutral-300 dark:border-neutral-700"
-      )}
-      whileHover={{ y: -1 }}
-      transition={{ type: "spring", stiffness: 350, damping: 28 }}
-      aria-label={label}
-    >
-      <span className="leading-none">{label}</span>
-    </motion.div>
-  );
-}
+const groups = [
+  { icon: Code2, label: "Interfaces", skills: ["React", "Next.js", "TypeScript", "JavaScript", "React Native", "Expo", "Tailwind CSS", "Framer Motion", "GSAP", "HTML & CSS", "Vite"] },
+  { icon: Layers3, label: "Applications", skills: ["Node.js", "Express", "Socket.IO", "WebSockets", "AI SDK", "Trigger.dev", "Daytona", "Zustand", "React Query", "Redux", "Zod", "Python", "C++"] },
+  { icon: Database, label: "Data & services", skills: ["PostgreSQL", "MongoDB", "Redis", "SQLite", "MySQL", "Prisma", "Drizzle", "Firebase", "Supabase"] },
+];
 
 export function SkillsDraggable() {
-  const skills: Skill[] = [
-    { label: "React.js" },
-    { label: "Next.js" },
-    { label: "TypeScript" },
-    { label: "JavaScript" },
-    { label: "Node.js" },
-    { label: "Express.js" },
-    { label: "Socket.IO" },
-    { label: "Web Sockets" },
-    { label: "MongoDB" },
-    { label: "PostgreSQL" },
-    { label: "Redis" },
-    { label: "MySQL" },
-    { label: "Prisma" },
-    { label: "Tailwind CSS" },
-    { label: "Framer Motion" },
-    { label: "GSAP" },
-    { label: "Zustand" },
-    { label: "React Query" },
-    { label: "Redux" },
-    { label: "Zod" },
-    { label: "Firebase" },
-    { label: "Supabase" },
-    { label: "Python" },
-    { label: "C++" },
-    { label: "HTML & CSS" },
-    { label: "Vite" },
-  ];
-
-  return (
-    
-    <div className="group">
-      
-      {/* Header */}
-      
-      <div className="mb-2 sm:mb-2 flex items-center justify-between">
-         <h3 className="font-bricolage text-xs sm:text-sm md:text-base font-bold tracking-[0.1em] text-slate-900 dark:text-slate-100">
-          Skills
-        </h3>
-       
-
-       
-      </div>
-
-      {/* Skills */}
-      <div className="relative flex flex-wrap gap-1.5 sm:gap-2 md:gap-2">
-        {skills.map(s => (
-          <SkillPill key={s.label} {...s} />
-        ))}
-      </div>
-
-      {/* Minimalist drag affordance */}
-      <div className="relative mt-0.5 sm:mt-1 h-2 overflow-hidden">
-        <div
-          className={cn(
-            "absolute left-0 top-1/2 h-px w-20 sm:w-24 -translate-y-1/2",
-            "border-t border-dashed border-slate-300 dark:border-slate-600",
-            "opacity-0 translate-x-0",
-            "transition-all duration-300 ease-out",
-            "group-hover:opacity-100 group-hover:translate-x-2 sm:group-hover:translate-x-3"
-          )}
-        />
-      </div>
-    </div>
-  );
+  return <div className="stack-groups">{groups.map(({ icon: Icon, label, skills }) => <div key={label} className="stack-group">
+    <h3><Icon size={15} aria-hidden="true" />{label}</h3>
+    <ul className="stack-pills" aria-label={label}>{skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
+  </div>)}</div>;
 }
-
 export default SkillsDraggable;
